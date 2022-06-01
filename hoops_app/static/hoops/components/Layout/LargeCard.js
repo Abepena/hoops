@@ -3,12 +3,14 @@ import Image from "next/image";
 
 function LargeCard({ img }) {
   return (
-    <section className="relative">
-      <img
-        src={img}
-        className="border h-96 min-w-[300px] w-full object-cover rounded-lg relative"
+    <section className="relative h-96 min-w-[300px] w-full">
+      <Image
+        src={img || "/lazy-basketball.jpg"}
+        layout="fill"
+        objectFit="cover"
+        className="rounded-lg border"
       />
-      <div className="absolute top-12 left-12">
+      <div className="absolute top-12 right-12">
         <div
           className="bg-white shadow-xl
              p-5 rounded-lg"

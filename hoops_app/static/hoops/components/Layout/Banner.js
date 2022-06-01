@@ -1,18 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import bannerImage from "../../assets/basketball-court-banner.png";
-import Link from "next/link";
 
-function Banner() {
+function Banner({ children }) {
   return (
     <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] ">
-      <Image src={bannerImage} layout="fill" objectFit="cover" />
-      <div className="absolute top-1/2 w-full text-center">
-        <Link href={`/events`}>
-          <a className="transition-all bg-red-400 text-white px-10 sm:text-xl py-4 shadow-md hover:shadow-red-600 hover:shadow-2xl rounded -m-6 font-bold">
-            Discover new events
-          </a>
-        </Link>
+      <Image src={"/basketball_court.svg"} layout="fill" objectFit="cover" />
+      <div className="absolute top-1/2 -mt-2 w-full text-center">
+        {children}
       </div>
     </div>
   );

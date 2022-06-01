@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../../assets/basketball-ball-svgrepo-com.svg";
 import { SearchIcon, MenuIcon, UserCircleIcon } from "@heroicons/react/solid";
 
@@ -13,12 +14,14 @@ function Header() {
   return (
     <header className="sticky bg-white top-0 z-50 grid grid-cols-3 shadow-md p-5 md:px-10">
       {/* Left  Logo */}
-      <div className="flex items-center h-10 cursor-pointer">
-        <div className="h-10 w-10">
-          <Image src={logo} alt="Logo" />
-        </div>
-        <h1 className="ml-2">| CK Hoops</h1>
-      </div>
+      <Link href="/">
+        <a className="flex items-center h-10 cursor-pointer">
+          <div className="h-12 w-12">
+            <Image src={logo} alt="Logo" />
+          </div>
+          <h1 className="ml-2">| Pure Hoops</h1>
+        </a>
+      </Link>
       {/* Mid Search Bar*/}
       <form
         className="flex items-center border-2 rounded-full p-1"
@@ -35,7 +38,7 @@ function Header() {
         <button className="">
           <SearchIcon
             onClick={handleSubmit}
-            className="hidden md:inline-flex bg-red-400 p-1 rounded-full h-6 text-white cursor-pointer"
+            className="hidden md:inline bg-red-400 p-1 rounded-full h-6 text-white cursor-pointer"
           />
         </button>
       </form>

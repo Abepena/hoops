@@ -39,25 +39,25 @@ const categories = [
 
 const court_img = "/basketball_court.svg";
 
-function Main() {
-  const [upcomingEvents, setUpcomingEvents] = useState([]);
+function Main({ upcomingEvents }) {
+  // const [upcomingEvents, setUpcomingEvents] = useState([]);
 
-  useEffect(() => {
-    try {
-      fetch("/api/events/upcoming")
-        .then((response) => response.json())
-        .then((data) => {
-          setUpcomingEvents(data.events);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  // useEffect(() => {
+  //   try {
+  //     fetch("/api/events/upcoming")
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setUpcomingEvents(data.events);
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   return (
     <div className="relative -mt-10 w-11/12 mx-auto">
       <div className="pt-4 pb-2 px-4 -mt-10 bg-white relative rounded-lg shadow mb-8">
-        <h2 className="font-semibold text-3xl lg:text-5xl border-b-2 pb-4">
+        <h2 className="font-semibold text-gray-600 text-3xl border-b-2 pb-4">
           Upcoming events
         </h2>
         <section className="md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
@@ -82,7 +82,7 @@ function Main() {
           })}
         </div>
       </section>
-      <LargeCard img={court_img} />
+      <LargeCard img="/lazy-basketball.jpg" />
     </div>
   );
 }

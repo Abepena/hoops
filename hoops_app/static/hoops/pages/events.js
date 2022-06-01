@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import Banner from "../components/Layout/Banner";
 import EventList from "../components/Events/EventList";
 import Header from "../components/Layout/Header";
 import { server } from "../config";
