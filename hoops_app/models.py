@@ -1,14 +1,13 @@
 """Models for hoops app."""
 from datetime import datetime
-
-from . import db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from marshmallow_sqlalchemy.fields import Nested
+from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
 
-db.metadata.clear()
 
 class Location(db.Model):
     """Locations model. Represents a venue / field / court etc..."""
@@ -50,6 +49,7 @@ class LocationSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = Location
 
+
 class Event(db.Model):
     """Events model"""
 
@@ -58,22 +58,13 @@ class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(120), nullable=False)
     description = db.Column(db.Text, nullable=False)
+    img = db.Column(db.String(2083), nullable=True)
+    type = db.Column(db.String(), nullable=True)
     event_date = db.Column(db.DateTime, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     organizer_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    # organizer = db.relationship("User", backref="events")
     location_id = db.Column(db.Integer, db.ForeignKey("locations.id"))
     location = db.relationship("Location", backref="events")
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "name": self.name,
-            "description": self.description,
-            "event_date": self.event_date,
-            "created_at": self.created_at,
-            "organizer_id": self.organizer_id,
-        }
 
     def __repr__(self):
         return f"<Event {self.name}>"
@@ -84,6 +75,7 @@ class EventSchema(SQLAlchemyAutoSchema):
         model = Event
 
     location = Nested("LocationSchema", many=False)
+
 
 class User(UserMixin, db.Model):
     """
@@ -136,21 +128,6 @@ class User(UserMixin, db.Model):
         """Check hashed password."""
         return check_password_hash(self.password, password)
 
-    def serialize(self):
-        return {
-            "id": self.id,
-            "email": self.email,
-            "password": self.password,
-            "first_name": self.first_name,
-            "last_name": self.last_name,
-            "dob": self.dob,
-            "is_coach": self.is_coach,
-            "is_player": self.is_player,
-            "events": self.events,
-            "created_on": self.created_on,
-            "last_login": self.last_login,
-        }
-
     def __repr__(self):
         return f"<User {self.email}>"
 
@@ -176,7 +153,7 @@ class Payment(db.Model):
     __tablename__ = "payments"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(
-        db.Integer, db.ForeignKey("users.id"), primary_key=True, nullable=True
+        db.Integer, db.ForeignKey("users.id"), primary_key=True, nullable=False
     )
     event_id = db.Column(
         db.Integer, db.ForeignKey("events.id"), primary_key=True, nullable=False
@@ -184,19 +161,10 @@ class Payment(db.Model):
     paid = db.Column(db.Boolean, default=False, nullable=False)
     amount = db.Column(db.Integer)
 
-    def serialize(self):
-        return {
-            "id": self.id,
-            "user_id": self.user_id,
-            "event_id": self.event_id,
-            "paid": self.paid,
-            "amount": self.amount,
-        }
-
     def __repr__(self):
         return f"<Payment {self.id}>"
 
 
 class PaymentSchema(SQLAlchemyAutoSchema):
     class Meta:
-        model = Location
+        model = Payment

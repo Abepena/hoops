@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Banner from "../components/Banner";
+import Banner from "../components/Layout/Banner";
 import EventList from "../components/Events/EventList";
-import Header from "../components/Header";
+import Header from "../components/Layout/Header";
+import { server } from "../config";
 
-function Events() {
+function Events({ events }) {
   return (
     <div className="">
       <Header />
@@ -11,10 +12,22 @@ function Events() {
         <h1 className="text-3xl p-4 font-semibold text-gray-600 border-b-2">
           Events
         </h1>
-        <EventList />
+        <EventList events={events} />
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch(`${server}/api/events`);
+  const data = await res.json();
+  const { events } = data;
+
+  return {
+    props: {
+      events,
+    },
+  };
 }
 
 export default Events;

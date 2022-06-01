@@ -124,13 +124,17 @@ def create_event():
     """Logic to create an event from API call. Login required"""
     name = request.json["name"]
     description = request.json["description"]
-    event_date = datetime.strptime(request.json["event_date"], "%Y-%m-%dT%H:%M:%S.%fZ")
-    created_at = datetime.utcnow()
     organizer_id = request.json["organizer_id"]
     location_id = request.json["location_id"]
+    type = request.json["type"]
+    img = request.json["img"]
+    event_date = datetime.strptime(request.json["event_date"], "%Y-%m-%dT%H:%M:%S.%fZ")
+    created_at = datetime.utcnow()
 
     new_event = Event(
         name=name,
+        type=type,
+        img=img,
         description=description,
         event_date=event_date,
         created_at=created_at,

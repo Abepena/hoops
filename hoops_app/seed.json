@@ -1,0 +1,145 @@
+{
+  "locations": [
+    {
+      "address1": "62 East State Highway 4,",
+      "address2": null,
+      "city": "Englewood",
+      "country": "USA",
+      "description": "Indoor Basketball Court",
+      "latitude": null,
+      "longitude": null,
+      "name": "City Sports on 4",
+      "state": "NJ",
+      "zipcode": null
+    },
+    {
+      "address1": "500 Main St",
+      "address2": null,
+      "city": "Wycoff",
+      "country": "USA",
+      "description": "Indoor Basketball Courts",
+      "latitude": null,
+      "longitude": null,
+      "name": "SportProsUSA",
+      "state": "NJ",
+      "zipcode": "07481"
+    },
+    {
+      "address1": "Path Rd",
+      "address2": null,
+      "city": "Rochellle Park",
+      "country": "USA",
+      "description": "Indoor Basketball Park",
+      "latitude": null,
+      "longitude": null,
+      "name": "Rochelle Park Area Basketball Courts",
+      "state": "NJ",
+      "zipcode": "07662"
+    },
+    {
+      "address1": "Garden State Plaza Pkwy",
+      "address2": null,
+      "city": "Paramus",
+      "country": "USA",
+      "description": "Park in Paramus",
+      "latitude": null,
+      "longitude": null,
+      "name": "Cliff Gennarelli-Paramus Sports-Plex",
+      "state": "NJ",
+      "zipcode": "07652"
+    },
+    {
+      "address1": "341 Engle St",
+      "address2": null,
+      "city": "Englewood",
+      "country": null,
+      "description": "Recreation center in Englewood, New Jersey",
+      "latitude": null,
+      "longitude": null,
+      "name": "Englewood Field Club",
+      "state": "NJ",
+      "zipcode": null
+    },
+    {
+      "address1": "900 E Ridgewood Ave",
+      "address2": null,
+      "city": "Oradell",
+      "country": null,
+      "description": "Athletic field in Oradell, New Jersey",
+      "latitude": null,
+      "longitude": null,
+      "name": "Doug Parcells Athletic Complex (Ridgewood Field)",
+      "state": "NJ",
+      "zipcode": "07649"
+    },
+    {
+      "address1": "116 Holt St",
+      "address2": null,
+      "city": "Hackensack",
+      "country": null,
+      "description": "Recreation center in Hackensack, New Jersey",
+      "latitude": null,
+      "longitude": null,
+      "name": "Hackensack Recreation Department",
+      "state": "NJ",
+      "zipcode": "07601"
+    }
+  ],
+  "events": [
+    {
+      "description": "Team 1 Open Practice",
+      "event_date": "2022-05-30T20:00:00",
+      "location_id": 1,
+      "name": "Practice 1",
+      "type": null
+    },
+    {
+      "description": "Team 1 & 2 scrimmage",
+      "event_date": "2022-05-30T21:00:00",
+      "img": null,
+      "location_id": 2,
+      "name": "Basketball Scrimmage",
+      "type": null
+    },
+    {
+      "description": "Team 1 & 2 scrimmage",
+      "event_date": "2022-05-30T21:00:00",
+      "img": null,
+      "location_id": 3,
+      "name": "15 & Up Game 1",
+      "type": null
+    },
+    {
+      "description": "Team 1 & 2 scrimmage",
+      "event_date": "2022-05-30T21:30:00",
+      "img": null,
+      "location_id": 4,
+      "name": "16 & Up Game 1",
+      "type": null
+    },
+    {
+      "description": "First Mens League Game",
+      "event_date": "2022-05-30T22:00:00",
+      "img": null,
+      "location_id": 5,
+      "name": "Mens League Game 1",
+      "type": null
+    },
+    {
+      "description": "Second Mens League Game",
+      "event_date": "2022-05-30T23:00:00",
+      "img": null,
+      "location_id": 6,
+      "name": "Mens League Game 2",
+      "type": null
+    },
+    {
+      "description": "Coed Rec League",
+      "event_date": "2022-05-30T23:30:00",
+      "img": null,
+      "location_id": 7,
+      "name": "Coed Rec League",
+      "type": null
+    }
+  ]
+}

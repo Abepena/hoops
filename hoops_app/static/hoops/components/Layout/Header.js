@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import logo from "../assets/basketball-ball-svgrepo-com.svg";
+import logo from "../../assets/basketball-ball-svgrepo-com.svg";
 import { SearchIcon, MenuIcon, UserCircleIcon } from "@heroicons/react/solid";
 
 function Header() {
