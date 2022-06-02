@@ -1,7 +1,7 @@
 import React from "react";
 
 function PageWrapper({ children }) {
-  return <div className=" min-h-full pb-10">{children}</div>;
+  return <div className="mx-auto min-h-full">{children}</div>;
 }
 
 export default PageWrapper;

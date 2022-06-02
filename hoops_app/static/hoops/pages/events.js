@@ -1,10 +1,11 @@
 import EventList from "../components/Events/EventList";
 import Header from "../components/Layout/Header";
+import PageWrapper from "../components/Layout/PageWrapper";
 import { server } from "../config";
 
 function Events({ events }) {
   return (
-    <div className="">
+    <PageWrapper>
       <Header />
       <div className="container mx-auto">
         <h1 className="text-3xl p-4 font-semibold text-gray-600 border-b-2">
@@ -12,7 +13,7 @@ function Events({ events }) {
         </h1>
         <EventList events={events} />
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 
