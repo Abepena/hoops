@@ -6,7 +6,7 @@ function SmallCard({ img, event: { name, event_date, location, id } }) {
   const date = new Date(event_date).getTime();
   return (
     <Link href={`/events/${id}`}>
-      <a className=" p-2 flex items-center my-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:border hover:bg-gray-100 hover:scale-105 transition transform duration-200 ease-out">
+      <a className="mb-2 md:mb-0 p-2 flex items-center space-x-4 rounded-xl cursor-pointer hover:shadow-md hover:border hover:opacity-90 transition transform duration-200 ease-in-out">
         <div className="relative h-16 w-16">
           <img src={img} className="rounded-full" />
         </div>

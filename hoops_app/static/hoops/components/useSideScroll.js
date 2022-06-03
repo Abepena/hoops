@@ -10,7 +10,7 @@ export default function useHorizontalScroll() {
         e.preventDefault();
         el.scrollTo({
           left: el.scrollLeft + e.deltaY,
-          behavior: "smooth"
+          behavior: "auto"
         });
       };
       el.addEventListener("wheel", onWheel);
