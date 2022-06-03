@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import LargeCard from "./LargeCard";
 import MediumCard from "./MediumCard";
 import SmallCard from "./SmallCard";
+import useHorizontalScroll from "./useSideScroll";
 
 const thumbnails = [
-  "basketball_thumb.png",
-  "football_thumb.png",
-  "soccer_thumb.png",
-  "tennis_thumb.png",
-  "strength_thumb.png",
   "timer_thumb.png",
+  "strength_thumb.png",
+  "basketball_thumb.png",
+  "basketball_thumb.png",
+  "trophy_thumb.png",
+  "trophy_thumb.png",
   "trophy_thumb.png",
 ];
 
@@ -40,22 +41,10 @@ const categories = [
 const court_img = "/basketball_court.svg";
 
 function Main({ upcomingEvents }) {
-  // const [upcomingEvents, setUpcomingEvents] = useState([]);
-
-  // useEffect(() => {
-  //   try {
-  //     fetch("/api/events/upcoming")
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setUpcomingEvents(data.events);
-  //       });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
+  const scrollRef = useHorizontalScroll()
 
   return (
-    <div className="relative -mt-10 w-11/12 mx-auto">
+    <div className="relative -mt-10 container w-11/12 mx-auto">
       <div className="pt-4 pb-2 px-4 -mt-10 bg-white relative rounded-lg shadow mb-8">
         <h2 className="font-semibold text-gray-600 text-3xl border-b-2 pb-4">
           Upcoming events
@@ -70,7 +59,7 @@ function Main({ upcomingEvents }) {
         <h2 className="text-3xl px-4 pb-4 font-semibold text-gray-600 border-b-2">
           Explore it all
         </h2>
-        <div className="flex space-x-3 overflow-scroll scrollbar-hide p-4">
+        <div ref={scrollRef}className="flex space-x-3 overflow-scroll scroll-auto scrollbar-hide p-4 scrolling-touch">
           {categories.map((category, index) => {
             return (
               <MediumCard

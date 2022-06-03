@@ -1,13 +1,11 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
 import Banner from "../components/Layout/Banner";
-import Header from "../components/Layout/Header";
 import Main from "../components/Layout/Main";
 import Link from "next/link";
 import PageWrapper from "../components/Layout/PageWrapper";
 import { server } from "../config";
 
-export default function Home({events}) {
+export default function Home({ events }) {
   return (
     <PageWrapper>
       <Head>
@@ -19,16 +17,14 @@ export default function Home({events}) {
           rel="stylesheet"
         />
       </Head>
-      <Header />
       <Banner>
-        {" "}
         <Link href={`/events`}>
-          <a className="transition-all bg-white text-black px-10 sm:text-xl py-4 shadow-md hover:shadow-orange-600 hover:shadow-2xl rounded -m-6 font-bold">
+          <a className="transition-all bg-white text-black px-10 sm:text-3xl py-4 shadow-md hover:shadow-orange-600 hover:shadow-2xl rounded -m-6 font-bold">
             Discover new events
           </a>
         </Link>
       </Banner>
-      <Main upcomingEvents={events}/>
+      <Main upcomingEvents={events} />
     </PageWrapper>
   );
 }

@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 function Footer() {
   const date = new Date();
   return (
-    <footer className="flex items-center justify-between bg-slate-200  min-h-[50px] mt-2 p-4">
+    <footer className="flex items-center justify-between bg-white  min-h-[50px] mt-8 p-4">
       <div className="container mx-auto flex justify-between flex-col sm:flex-row gap-6">
         <section className="content flex items-center gap-4 info flex-col sm:flex-row">
           <h5>© {date.getFullYear()} - Pure Hoops</h5>

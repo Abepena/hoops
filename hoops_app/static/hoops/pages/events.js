@@ -6,9 +6,8 @@ import { server } from "../config";
 function Events({ events }) {
   return (
     <PageWrapper>
-      <Header />
-      <div className="container mx-auto">
-        <h1 className="text-3xl p-4 font-semibold text-gray-600 border-b-2">
+      <div className="container mx-auto w-11/12">
+        <h1 className="text-3xl p-4 font-semibold text-gray-700 border-b-2">
           Events
         </h1>
         <EventList events={events} />

@@ -8,10 +8,10 @@ import Link from "next/link";
 function EventCard({ event }) {
   return (
     <Link href={`/events/${event.id}`}>
-      <a className="relative border border-gray-200 rounded-md py-2 hover:scale-105 cursor-pointer hover:shadow-md transition-all min-h-[300px]">
+      <a className="bg-white text-gray-700 relative border border-gray-200 rounded-md py-2 hover:scale-105 hover:shadow-md hover:opacity-80 cursor-pointer  transition-all min-h-[300px]">
         <div className="mx-4 flex min-h-[60px] items-center justify-center">
-          <h2 className="text-lg text-center">{event.name || "Event Name"}</h2>
-          <h2 className="text-sm text-gray-500">{event.type || ""}</h2>
+          <h2 className="text-lg font-semibold text-center">{event.name || "Event Name"}</h2>
+          <h2 className="text-sm text-gray-500">{event.sport || ""}</h2>
         </div>
         <div className="my-2">
           <img
@@ -31,14 +31,13 @@ function EventCard({ event }) {
             <TicketIcon className="h-6 mr-2" />
             {event.cost || "$10.00"}
           </h4>
-          <h4>
+          <h4 className="flex items-center">
             <LocationMarkerIcon className="h-6 mr-2" />
             {`${event.location.address1} 
             ${event.location.address2 ? `, ${event.location.address2}` : ""} 
             ${event.location.city ? `, ${event.location.city}` : ""} 
             ${event.location.state || ""}`}
           </h4>
-          <h4></h4>
         </div>
       </a>
     </Link>
