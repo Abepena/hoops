@@ -10,6 +10,8 @@ from marshmallow import Schema
 from .models import (
     Event,
     Location,
+    User,
+    Payment,
     UserSchema,
     EventSchema,
     LocationSchema,
@@ -126,8 +128,8 @@ def create_event():
     description = request.json["description"]
     organizer_id = request.json["organizer_id"]
     location_id = request.json["location_id"]
-    type = request.json["type"]
-    img = request.json["img"]
+    type = request.json.get("type")
+    img = request.json.get("img")
     event_date = datetime.strptime(request.json["event_date"], "%Y-%m-%dT%H:%M:%S.%fZ")
     created_at = datetime.utcnow()
 
@@ -145,13 +147,13 @@ def create_event():
     db.session.add(new_event)
     db.session.commit()
 
-    return (jsonify(event=new_event.serialize()), 201)
+    return (jsonify(event=EventSchema().dump(new_event)), 201)
 
 
 @api.route("/events/<int:id>", methods=["GET"])
 def get_event(id):
     event = Event.query.get_or_404(id)
-    return jsonify(event=event.serialize)
+    return jsonify(event=EventSchema().dump(event))
 
 
 @api.route("/events/<int:id>", methods=["PATCH"])
@@ -174,15 +176,38 @@ def delete_event(id):
 @api.route("/events/upcoming", methods=["GET"])
 def upcoming():
     """
-    TODO: Fix logic on next n events,
-    should be filtered for first n events after today
+    Returns a JSON List of the next 8 events coming up ordered by date
     """
     upcoming_events = [
         EventSchema().dump(event)
-        for event in db.session.query(Event).order_by(Event.id.desc()).limit(8)
+        for event in Event.query.filter(Event.event_date >= datetime.now())
+        .order_by(Event.event_date.asc())
+        .limit(8)
     ]
-    upcoming_events = upcoming_events[::-1]
+
     return (jsonify(events=upcoming_events), 200)
+
+    # for event in db.session.query(Event)
+    # .filter_by(Event.event_date >= datetime.utcnow())
+    # .order_by(Event.event_date.desc())
+    # .limit(8)
+
+
+#############
+# USERS
+#############
+
+
+@api.route("/users", methods=["GET"])
+def all_users():
+    """Return all users in json """
+    all_users = [UserSchema().dump(user) for user in User.query.all()]
+    return (jsonify(users=all_users), 201)
+
+
+#############
+# STRIPE
+#############
 
 
 @api.route("/config")

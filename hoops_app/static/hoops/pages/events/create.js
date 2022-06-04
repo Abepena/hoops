@@ -103,7 +103,7 @@ function create() {
                       placeholder="100 Main St."
                     />
                   </Autocomplete>
-                  <div className={center || "hidden"}>
+                  <div className={center ? "" : "hidden"}>
                     <GoogleMap
                       mapContainerStyle={mapContainerStyle}
                       center={center}
@@ -133,14 +133,6 @@ function create() {
                       ⚾️ Baseball/Softball
                     </option>
                   </Field>
-                  {/* 
-
-    type = db.Column(db.String(), nullable=True)
-    event_date = db.Column(db.DateTime, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    organizer_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    location_id = db.Column(db.Integer, db.ForeignKey("locations.id"))
-    location = db.relationship("Location", backref="events") */}
                 </div>
                 <button
                   className="btn bg-slate-600 text-white px-4 py-2 rounded-xl "

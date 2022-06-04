@@ -14,28 +14,13 @@ const thumbnails = [
   "trophy_thumb.png",
 ];
 
-const categories = [
-  {
-    img: "https://source.unsplash.com/t9fHu08z3TI",
-    title: "Open gym runs & Pick up games",
-  },
-  {
-    img: "https://source.unsplash.com/yfTnYbNuDJ4",
-    title: "Open seminars & practices",
-  },
-  {
-    img: "https://source.unsplash.com/kP1AxmCyEXM",
-    title: "Rec League Sign Ups",
-  },
-  {
-    img: "https://source.unsplash.com/buWcS7G1_28",
-    title: "Training Programs",
-  },
-  {
-    img: "https://source.unsplash.com/UFIZodJgScQ",
-    title: "Men's Leagues",
-  },
-  { img: "https://source.unsplash.com/NW2AVFgqkAg", title: "Coed Leagues" },
+const training_categories = [
+  { img: "pickup-game.jpg", title: "Open gym runs & Pick up games" },
+  { img: "dunk.jpg", title: "Open seminars & practices" },
+  { img: "color-court.jpg", title: "Rec League Sign Ups" },
+  { img: "training.jpg", title: "Training Programs" },
+  { img: "mens-leagues.jpg", title: "Men's Leagues" },
+  { img: "womens-basketball.jpg", title: "Coed Leagues" },
 ];
 
 const court_img = "/basketball_court.svg";
@@ -51,7 +36,7 @@ function Main({ upcomingEvents }) {
         </h2>
         <section className="pt-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {upcomingEvents.map((event, index) => (
-            <SmallCard key={index} img={thumbnails[index]} event={event} />
+            <SmallCard key={index} event={event} />
           ))}
         </section>
       </div>
@@ -63,7 +48,7 @@ function Main({ upcomingEvents }) {
           ref={scrollRef}
           className="flex space-x-3 overflow-scroll scrollbar-hide p-4 scroll-touch"
         >
-          {categories.map((category, index) => {
+          {training_categories.map((category, index) => {
             return (
               <MediumCard
                 key={index}

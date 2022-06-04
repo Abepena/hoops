@@ -1,7 +1,20 @@
 {
+  "users": [
+    {
+      "created_on": "2022-06-04T00:34:49.345513",
+      "dob": "1992-09-29",
+      "email": "pena.abe@gmail.com",
+      "first_name": "Abraham",
+      "is_coach": false,
+      "is_player": true,
+      "last_login": "2022-06-04T00:34:49.345532",
+      "last_name": "Pena",
+      "password": "sha256$WsLqo221$6ee71da35d9efa519848d3c216b139471d12d195bd3214c177a91f9c39ee1c8e"
+    }
+  ],
   "locations": [
     {
-      "address1": "62 East State Highway 4,",
+      "address1": "62 East State Highway 4",
       "address2": null,
       "city": "Englewood",
       "country": "USA",
@@ -88,58 +101,68 @@
   "events": [
     {
       "description": "Team 1 Open Practice",
-      "event_date": "2022-05-30T20:00:00",
+      "event_date": "2022-09-30T20:00:00",
       "location_id": 1,
       "name": "Practice 1",
-      "type": null
+      "type": null,
+      "img_url": "timer_thumb.png"
     },
     {
       "description": "Team 1 & 2 scrimmage",
-      "event_date": "2022-05-30T21:00:00",
-      "img": null,
+      "event_date": "2022-07-08T21:00:00",
+      "img_url": "strength_thumb.png",
       "location_id": 2,
       "name": "Basketball Scrimmage",
       "type": null
     },
     {
       "description": "Team 1 & 2 scrimmage",
-      "event_date": "2022-05-30T21:00:00",
-      "img": null,
+      "event_date": "2022-07-15T21:00:00",
+      "img_url": "basketball_thumb.png",
       "location_id": 3,
       "name": "15 & Up Game 1",
       "type": null
     },
     {
       "description": "Team 1 & 2 scrimmage",
-      "event_date": "2022-05-30T21:30:00",
-      "img": null,
+      "event_date": "2022-07-25T21:30:00",
+      "img_url": "basketball_thumb.png",
       "location_id": 4,
       "name": "16 & Up Game 1",
       "type": null
     },
     {
       "description": "First Mens League Game",
-      "event_date": "2022-05-30T22:00:00",
-      "img": null,
+      "event_date": "2022-08-08T22:00:00",
+      "img_url": "trophy_thumb.png",
       "location_id": 5,
       "name": "Mens League Game 1",
       "type": null
     },
     {
       "description": "Second Mens League Game",
-      "event_date": "2022-05-30T23:00:00",
-      "img": null,
+      "event_date": "2022-08-16T23:00:00",
+      "img_url": "trophy_thumb.png",
       "location_id": 6,
       "name": "Mens League Game 2",
       "type": null
     },
     {
       "description": "Coed Rec League",
-      "event_date": "2022-05-30T23:30:00",
-      "img": null,
+      "event_date": "2022-08-23T23:30:00",
+      "img_url": "trophy_thumb.png",
       "location_id": 7,
       "name": "Coed Rec League",
       "type": null
+    },
+    {
+      "description": "Pa's Walkathon",
+      "event_date": "2022-08-30T23:30:00",
+      "img_url": "trophy_thumb.png",
+      "location_id": 3,
+      "name": "Pa's Walkathon",
+      "type": null,
+      "organizer_id": 1
     }
   ]
 }

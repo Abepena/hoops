@@ -17,7 +17,7 @@ class Location(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(120), unique=False, nullable=False)
     description = db.Column(db.Text, unique=False, nullable=False)
-    address1 = db.Column(db.String(120), unique=False, nullable=False)
+    address1 = db.Column(db.String(255), unique=False, nullable=False)
     address2 = db.Column(db.String(120), unique=False, nullable=True)
     city = db.Column(db.String(120), unique=False, nullable=True)
     state = db.Column(db.String(120), unique=False, nullable=True)
@@ -25,21 +25,6 @@ class Location(db.Model):
     country = db.Column(db.String(60), unique=False, nullable=True)
     latitude = db.Column(db.Float(13), unique=False, nullable=True)
     longitude = db.Column(db.Float(13), unique=False, nullable=True)
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "name": self.name,
-            "description": self.description,
-            "address1": self.address1,
-            "address2": self.address2,
-            "city": self.city,
-            "state": self.state,
-            "zipcode": self.zipcode,
-            "country": self.country,
-            "latitude": self.latitude,
-            "longitude": self.longitude,
-        }
 
     def __repr__(self):
         return f"<Location {self.name}"
@@ -56,10 +41,10 @@ class Event(db.Model):
     __tablename__ = "events"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(120), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
-    img = db.Column(db.String(2083), nullable=True)
-    type = db.Column(db.String(), nullable=True)
+    img_url = db.Column(db.String(2083), nullable=True)
+    type = db.Column(db.String(20), nullable=True)
     event_date = db.Column(db.DateTime, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     organizer_id = db.Column(db.Integer, db.ForeignKey("users.id"))
@@ -133,6 +118,10 @@ class User(UserMixin, db.Model):
 
 
 class UserSchema(SQLAlchemyAutoSchema):
+    """
+    TODO: exclude password
+    """
+
     class Meta:
         model = User
 

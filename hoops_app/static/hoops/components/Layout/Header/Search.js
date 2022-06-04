@@ -5,6 +5,7 @@ function Search() {
   const [search, setSearch] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (search === "") return
     alert(JSON.stringify(search));
     setSearch("");
   };
