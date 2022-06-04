@@ -2,6 +2,7 @@ import React from "react";
 import { CalendarIcon } from "@heroicons/react/outline";
 import Moment from "react-moment";
 import { LocationMarkerIcon, TicketIcon } from "@heroicons/react/outline";
+import costToString from "/utils/costToString";
 
 function EventDetails({ event }) {
   return (
@@ -27,17 +28,23 @@ function EventDetails({ event }) {
         </h4>
         <h4 className="flex items-center">
           <TicketIcon className="h-6 mr-2" />
-          {event.cost || "$10.00"}
+          {costToString(event.cost) || "$10.00"}
         </h4>
       </div>
       <p className="m-4">
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Delectus, ad
         asperiores sunt explicabo a incidunt eius ipsam nulls veritatis
         dignissimos maxime quas assumenda ducimus, molestiae error vitae amet
-        recusandae id"
-       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias perferendis quis repellendus quam sunt voluptatum, eligendi inventore unde amet obcaecati! Quasi delectus sit labore pariatur est iure cupiditate? Sapiente, eaque!
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit mollitia doloribus nulla magni quod repudiandae, magnam harum sit unde fugiat blanditiis est in sunt, vero iste, quae inventore non iusto?
-       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae deleniti impedit vero, molestiae non rem. Placeat, unde. Nemo beatae itaque atque dicta totam assumenda perspiciatis, natus, doloremque facilis accusantium qui!
+        recusandae id" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        Alias perferendis quis repellendus quam sunt voluptatum, eligendi
+        inventore unde amet obcaecati! Quasi delectus sit labore pariatur est
+        iure cupiditate? Sapiente, eaque! Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Fugit mollitia doloribus nulla magni quod repudiandae,
+        magnam harum sit unde fugiat blanditiis est in sunt, vero iste, quae
+        inventore non iusto? Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Repudiandae deleniti impedit vero, molestiae non rem. Placeat,
+        unde. Nemo beatae itaque atque dicta totam assumenda perspiciatis,
+        natus, doloremque facilis accusantium qui!
       </p>
     </div>
   );

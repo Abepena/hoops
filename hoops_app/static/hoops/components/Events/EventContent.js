@@ -1,9 +1,8 @@
 import React from "react";
 import EventDetails from "../../components/Events/EventDetails";
 import EventMap from "../../components/Events/EventMap";
-import Modal from "../../components/Modal";
 import { useJsApiLoader } from "@react-google-maps/api";
-
+import EventSignUpModal from "./EventSignUpModal";
 
 function EventContent({ event }) {
   const center = {
@@ -22,13 +21,7 @@ function EventContent({ event }) {
         <section className="grid lg:grid-cols-2 w-full">
           <div className="details">
             <EventDetails event={event} />
-            <div className="mx-4 mb-4">
-              <Modal
-                text={`Sign Up${
-                  event.cost ? ` $${(event.cost / 100).toFixed(2)}` : ""
-                }`}
-              ></Modal>
-            </div>
+            <EventSignUpModal event={event} />
           </div>
           {isLoaded ? <EventMap center={center} /> : <></>}
         </section>

@@ -2,17 +2,7 @@ import React, { useState, useEffect } from "react";
 import LargeCard from "./LargeCard";
 import MediumCard from "./MediumCard";
 import SmallCard from "./SmallCard";
-import useHorizontalScroll from "../useSideScroll";
-
-const thumbnails = [
-  "timer_thumb.png",
-  "strength_thumb.png",
-  "basketball_thumb.png",
-  "basketball_thumb.png",
-  "trophy_thumb.png",
-  "trophy_thumb.png",
-  "trophy_thumb.png",
-];
+import useHorizontalScroll from "/utils/useSideScroll";
 
 const training_categories = [
   { img: "pickup-game.jpg", title: "Open gym runs & Pick up games" },
