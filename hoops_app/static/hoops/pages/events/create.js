@@ -26,21 +26,24 @@ function create() {
   });
 
   function onPlaceChanged() {
-    console.log(place.getPlace());
-    const {
-      formatted_address,
-      geometry: { location },
-    } = place.getPlace();
-    console.log(formatted_address);
-    console.log(location.lat());
-    console.log(location.lng());
-    const lat = location.lat();
-    const lng = location.lng();
-    setCenter({ lat, lng });
-    setCenter((center) => {
-      console.log(center);
-      return center;
-    });
+    try {
+      const {
+        formatted_address,
+        geometry: { location },
+      } = place.getPlace();
+      console.log(formatted_address);
+      console.log(location.lat());
+      console.log(location.lng());
+      const lat = location.lat();
+      const lng = location.lng();
+      setCenter({ lat, lng });
+      setCenter((center) => {
+        console.log(center);
+        return center;
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return (
@@ -57,14 +60,23 @@ function create() {
             onSubmit={async (values) => {
               await sleep(500);
               if (place === null) return;
-              const {
-                formatted_address,
-                geometry: { location },
-              } = place.getPlace();
-              const address = formatted_address;
-              const lat = location.lat();
-              const lng = location.lng();
-              alert(JSON.stringify({ ...values, address, lat, lng }, null, 2));
+
+              // exit function if place.getPlace() doesnt work
+              try {
+                const {
+                  formatted_address,
+                  geometry: { location },
+                } = place.getPlace();
+                const address = formatted_address;
+                const lat = location.lat();
+                const lng = location.lng();
+
+                alert(
+                  JSON.stringify({ ...values, address, lat, lng }, null, 2)
+                );
+              } catch (e) {
+                console.log(e);
+              }
             }}
           >
             {({ isSubmitting }) => (

@@ -23,8 +23,8 @@ class Location(db.Model):
     state = db.Column(db.String(120), unique=False, nullable=True)
     zipcode = db.Column(db.String(60), unique=False, nullable=True)
     country = db.Column(db.String(60), unique=False, nullable=True)
-    latitude = db.Column(db.Float(13), unique=False, nullable=True)
-    longitude = db.Column(db.Float(13), unique=False, nullable=True)
+    lat = db.Column(db.Float(13), unique=False, nullable=True)
+    lng = db.Column(db.Float(13), unique=False, nullable=True)
 
     def __repr__(self):
         return f"<Location {self.name}"

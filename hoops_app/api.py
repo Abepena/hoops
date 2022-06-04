@@ -65,8 +65,8 @@ def create_location():
     state = request.json.get("state")
     zipcode = request.json.get("zipcode")
     country = request.json.get("country")
-    latitude = request.json.get("latitude")
-    longitude = request.json.get("longitude")
+    lat = request.json.get("lat")
+    lng = request.json.get("lng")
 
     new_location = Location(
         name=name,
@@ -77,8 +77,8 @@ def create_location():
         state=state,
         country=country,
         zipcode=zipcode,
-        latitude=latitude,
-        longitude=longitude,
+        lat=lat,
+        lng=lng,
     )
 
     db.session.add(new_location)
