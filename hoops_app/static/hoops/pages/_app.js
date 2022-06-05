@@ -1,6 +1,9 @@
-import Router from "next/router"
-import ProgressBar from "@badrap/bar-of-progress"
-import "../styles/globals.css";
+import Router from "next/router";
+import ProgressBar from "@badrap/bar-of-progress";
+
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "/styles/tailwind.css";
+import "/styles/globals.css";
 
 const progress = new ProgressBar({
   size: 4,
