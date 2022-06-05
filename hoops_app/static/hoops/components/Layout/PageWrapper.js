@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import IndexNavbar from "components/Navbars/IndexNavbar";
+import IndexNavbar from "components/Navbars/NavbarIndex";
 
 function PageWrapper({ children }) {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LargeCard from "./LargeCard";
 import MediumCard from "./MediumCard";
-import SmallCard from "./SmallCard";
+import SmallCard from "components/Cards/SmallCard";
 import useHorizontalScroll from "/utils/useSideScroll";
 
 const training_categories = [
@@ -19,19 +19,19 @@ function Main({ upcomingEvents }) {
   const scrollRef = useHorizontalScroll();
 
   return (
-    <div className="relative -mt-10 container w-11/12 mx-auto">
-      <div className="p-6 -mt-10 bg-white relative rounded-lg shadow mb-8">
-        <h2 className="font-semibold text-gray-600 text-3xl border-b-2 pb-4">
+    <div className="relative -mt-10 w-11/12 container mx-auto">
+      <div className="mx-3 p-6 relative rounded-lg shadow-2xl bg-base-100 mb-8">
+        <h2 className="font-semibold text-3xl border-b-2 border-neutral-content pb-4">
           Upcoming events
         </h2>
-        <section className="pt-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+        <section className="pt-4 grid items-center justify-center md:grid-cols-2  xl:grid-cols-3 gap-6">
           {upcomingEvents.map((event, index) => (
             <SmallCard key={index} event={event} />
           ))}
         </section>
       </div>
       <section>
-        <h2 className="text-3xl px-4 pb-4 font-semibold text-gray-600 border-b-2">
+        <h2 className="text-3xl px-4 pb-4 font-semibold border-b-2 border-neutral-content  ">
           Explore it all
         </h2>
         <div

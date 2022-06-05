@@ -1,17 +1,14 @@
-import Brand from "components/Layout/Header/Brand";
+import NavbarBrand from "./NavbarBrand";
 import NavbarSearch from "./NavbarSearch";
 
-function IndexNavbar() {
+function NavbarIndex() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">
-          <i className="fa-solid fa-basketball text-3xl mr-2"></i>
-          Pure Hoops
-        </a>
+        <NavbarBrand />
       </div>
       <div className="flex-none gap-2">
-        <NavbarSearch className="hidden md:block"/>
+        <NavbarSearch className="hidden md:block" />
         <div className="dropdown dropdown-end">
           <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
@@ -40,4 +37,4 @@ function IndexNavbar() {
     </div>
   );
 }
-export default IndexNavbar;
+export default NavbarIndex;

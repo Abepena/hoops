@@ -1,47 +1,39 @@
-import Image from "next/image";
+
 import React from "react";
 import Moment from "react-moment";
-import { CalendarIcon, LocationMarkerIcon } from "@heroicons/react/solid";
-import { TicketIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import costToString from "utils/costToString";
+import Image from "next/image";
 
-function EventCard({ event }) {
+
+function EventCard({ event: { name, event_date, location, id, img_url, cost },}) {
+  const date = new Date(event_date).getTime();
   return (
-    <Link href={`/events/${event.id}`}>
-      <a className="bg-white text-gray-700 relative border border-gray-200 rounded-md py-2 hover:scale-105 hover:shadow-md hover:opacity-80 cursor-pointer  transition-all min-h-[300px]">
-        <div className="mx-4 flex min-h-[60px] items-center justify-center">
-          <h2 className="text-lg font-semibold text-center">{event.name || "Event Name"}</h2>
-          <h2 className="text-sm text-gray-500">{event.sport || ""}</h2>
-        </div>
-        <div className="my-2">
-          <img
-            src={event.img || "https://source.unsplash.com/Gl0jBJJTDWs"}
-            className="object-cover h-24 w-full"
-          />
-        </div>
-        <div className="details mx-4">
-          <h3 className="font-semibold text-sm">
-            {event.location.name || "Location Name"}
-          </h3>
-          <h3 className="font-bold text-red-400 flex items-center">
-            <CalendarIcon className="h-6 mr-2" />
-            <Moment date={event.event_date} format={"LLL"} />
-          </h3>
-          <h4 className="flex items-center">
-            <TicketIcon className="h-6 mr-2" />
-            {event.cost || "$10.00"}
-          </h4>
-          <h4 className="flex items-center">
-            <LocationMarkerIcon className="h-6 mr-2" />
-            {`${event.location.address1} 
-            ${event.location.address2 ? `, ${event.location.address2}` : ""} 
-            ${event.location.city ? `, ${event.location.city}` : ""} 
-            ${event.location.state || ""}`}
-          </h4>
+    <Link href={`/events/${id}`}>
+      <a className="hover:scale-105 mb-2 md:mb-0 cursor-pointer hover:shadow-md hover:opacity-80 transition transform duration-200 ease-in-out">
+        <div className="bg-base-300 shadow-2xl card w-96 sm:w-full">
+          <figure className="h-96">
+            <img 
+              className="h-full w-full object-cover"
+              src={`${img_url}`}
+              alt="event image"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{name}</h2>
+            <h3 className="truncate">{location.name}</h3>
+            <Moment fromNow className="text-xs text-gray-400" date={date} />
+            <div className="card-actions items-end justify-end">
+              <div className="badge badge-success">{`${
+                cost ? costToString(cost) : "Free"
+              }`}</div>
+            </div>
+          </div>
         </div>
       </a>
     </Link>
   );
 }
+
 
 export default EventCard;

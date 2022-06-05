@@ -2,7 +2,7 @@ import React from "react";
 import EventDetails from "../../components/Events/EventDetails";
 import EventMap from "../../components/Events/EventMap";
 import { useJsApiLoader } from "@react-google-maps/api";
-import EventSignUpModal from "./EventSignUpModal";
+import EventSignupModal from "components/Modals/EventRegisterModal";
 
 function EventContent({ event }) {
   const center = {
@@ -16,12 +16,11 @@ function EventContent({ event }) {
     libraries: ["places"],
   });
   return (
-    <main className="relative -mt-10 rounded-2xl bg-white shadow-md overflow-clip mx-4">
+    <main className="relative -mt-10 rounded-2xl bg-white text-neutral shadow-md overflow-clip mx-4">
       <section className="grid min-h-[500px]">
         <section className="grid lg:grid-cols-2 w-full">
           <div className="details">
             <EventDetails event={event} />
-            <EventSignUpModal event={event} />
           </div>
           {isLoaded ? <EventMap center={center} /> : <></>}
         </section>

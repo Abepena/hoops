@@ -7,12 +7,12 @@ import costToString from "/utils/costToString";
 function EventDetails({ event }) {
   return (
     <div className="event-details p-2 ">
-      <div className="mx-4 flex items-center py-2 border-b-2 mb-2">
+      <div className="mx-4 flex items-center py-2 border-b-2 border-neutral-content mb-2">
         <h2 className="text-2xl font-bold">{event.name || "Event Name"}</h2>
         <h2 className="text-sm text-gray-500">{event.type || ""}</h2>
       </div>
-      <div className="details mx-4 flex flex-col gap-3">
-        <h3 className="font-semibold text-xl text-orange-600">
+      <div className="details mx-4 grid gap-3">
+        <h3 className="text-xl font-semi-bold text-orange-600">
           {event.location.name || "Location Name"}
         </h3>
         <h3 className="font-bold flex items-center">
@@ -22,13 +22,29 @@ function EventDetails({ event }) {
 
         <h4 className="flex items-center">
           <LocationMarkerIcon className="h-6 mr-2" />
-          {`${event.location.address1} 
+
+          {
+            //TODO: change to formatted_address from googlemaps
+            `${event.location.address1} 
             ${event.location.city ? `, ${event.location.city}` : ""} 
-            ${event.location.state || ""}`}
+            ${event.location.state || ""}`
+          }
         </h4>
         <h4 className="flex items-center">
           <TicketIcon className="h-6 mr-2" />
-          {costToString(event.cost) || "$10.00"}
+          <div className="mr-2">
+            {event.cost ? (
+              costToString(event.cost)
+            ) : (
+              <div className="badge badge-lg badge-success ">Free</div>
+            )}
+          </div>
+          <label
+            htmlFor="event-signup-modal"
+            className="btn btn-sm modal-button btn-success"
+          >
+            Register
+          </label>
         </h4>
       </div>
       <p className="m-4">

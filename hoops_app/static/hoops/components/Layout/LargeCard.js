@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Modal from "../Modal";
 
 function LargeCard({ img }) {
   return (
@@ -12,14 +11,19 @@ function LargeCard({ img }) {
         className="rounded-lg border"
       />
       <div className="absolute top-12 right-12">
-        <div className="bg-white shadow-xl p-5 rounded-lg">
+        <div className="bg-base-100 shadow-xl p-5 rounded-lg">
           <h3 className="text-2xl">Its time for some fun</h3>
-          <h4 className="mb-2 text-gray-600">Reach out to get started</h4>
-          <Modal text="Contact Us" />
+          <h4 className="mb-2 ">Reach out to get started</h4>
+          <label
+            for="contact-modal"
+            class="btn btn-secondary modal-button"
+          >
+            Contact Us
+          </label>
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 export default LargeCard;
