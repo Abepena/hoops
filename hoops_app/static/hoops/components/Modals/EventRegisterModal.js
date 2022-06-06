@@ -4,23 +4,14 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "components/Forms/CheckoutForm";
 import axios from "axios";
 
-// const stripePromise = loadStripe("pk_test_p4TrzUQEu2nYIDv5yMoTH8iQ");
-// const { clientSecret } = await axios.post(
-//   "/api/secret",
-//   { amount: cost },
-//   {
-//     headers: {
-//       "Content-Type": "application/json",
-//       "Access-Control-Allow-Origin": "*",
-//     },
-//   }
-// ).data;
+const stripePromise = loadStripe("pk_test_p4TrzUQEu2nYIDv5yMoTH8iQ");
+
 function EventRegisterModal({ cost }) {
   return (
-    <div>
-      <input type="checkbox" id="event-signup-modal" className="modal-toggle" />
-      <div className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
+    <div className="">
+      <input type="checkbox" id="event-signup-modal" class="modal-toggle" />
+      <label htmlFor="event-signup-modal" class="modal cursor-pointer">
+        <label class="modal-box relative" htmlFor="">
           {/* Modal Steps */}
           <ul className="steps w-full mx-auto">
             <li className="step step-success">Register</li>
@@ -91,7 +82,7 @@ function EventRegisterModal({ cost }) {
           </div>
 
           {/* Waiver Section */}
-          <section className="waiver h-screen w-full bg-white text-neutral">
+          <section className="waiver h-screen w-full bg-white p-4 text-neutral">
             <p className="waiver-content ">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Mollitia, odio! Rem similique debitis quam, sint possimus aliquid
@@ -119,19 +110,32 @@ function EventRegisterModal({ cost }) {
               voluptates, aut ullam iste recusandae corrupti in!
             </p>
           </section>
-          {/* Confirmation / Payment  Section */}
-          {/* <Elements stripe={stripePromise} options={options}>
-            <CheckoutForm />
-          </Elements> */}
-          <div className="modal-action">
-            <label htmlFor="event-signup-modal" className="btn">
-              Yay!
-            </label>
-          </div>
-        </div>
-      </div>
+        </label>
+      </label>
     </div>
   );
 }
 
 export default EventRegisterModal;
+
+// <div>
+// <input
+//   type="checkbox"
+//   id="event-signup-modal"
+//   className="modal-toggle"
+// />
+// <label className="modal modal-bottom sm:modal-middle">
+//   <label className="modal-box">
+//     {/* Confirmation / Payment  Section */}
+//     {/* <Elements stripe={stripePromise} options={options}>
+//     <CheckoutForm />
+//   </Elements> */}
+//     <div className="modal-action">
+//       <label htmlFor="event-signup-modal" className="btn">
+//         Yay!
+//       </label>
+//     </div>
+//   </label>
+// </label>
+// </div>
+// </div>
