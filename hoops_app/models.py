@@ -39,8 +39,9 @@ class Event(db.Model):
     """Events model"""
 
     __tablename__ = "events"
-
+ 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    cost = db.Column(db.Integer, nullable=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
     img_url = db.Column(db.String(2083), nullable=True)

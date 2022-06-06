@@ -14,16 +14,13 @@ function LargeCard({ img }) {
         <div className="bg-base-100 shadow-xl p-5 rounded-lg">
           <h3 className="text-2xl">Its time for some fun</h3>
           <h4 className="mb-2 ">Reach out to get started</h4>
-          <label
-            for="contact-modal"
-            class="btn btn-secondary modal-button"
-          >
+          <label htmlFor="contact-modal" className="btn btn-secondary modal-button">
             Contact Us
           </label>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default LargeCard;

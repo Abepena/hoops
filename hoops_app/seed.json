@@ -104,64 +104,72 @@
       "event_date": "2022-09-30T20:00:00",
       "location_id": 1,
       "name": "Practice 1",
+      "img_url": "/court-1.jpg",
       "type": null,
-      "img_url": "timer_thumb.png"
+      "cost": 0
     },
     {
       "description": "Team 1 & 2 scrimmage",
       "event_date": "2022-07-08T21:00:00",
-      "img_url": "strength_thumb.png",
+      "img_url": "/court-1.jpg",
       "location_id": 2,
       "name": "Basketball Scrimmage",
-      "type": null
+      "type": null,
+      "cost": 1000
     },
     {
       "description": "Team 1 & 2 scrimmage",
       "event_date": "2022-07-15T21:00:00",
-      "img_url": "basketball_thumb.png",
+      "img_url": "/court-2.jpg",
       "location_id": 3,
       "name": "15 & Up Game 1",
-      "type": null
+      "type": null,
+      "cost": 2000
     },
     {
       "description": "Team 1 & 2 scrimmage",
       "event_date": "2022-07-25T21:30:00",
-      "img_url": "basketball_thumb.png",
+      "img_url": "/hoop-1.jpg",
       "location_id": 4,
       "name": "16 & Up Game 1",
-      "type": null
+      "type": null,
+      "cost": 1500
     },
     {
       "description": "First Mens League Game",
       "event_date": "2022-08-08T22:00:00",
-      "img_url": "trophy_thumb.png",
+      "img_url": "/hoop-2.jpg",
       "location_id": 5,
       "name": "Mens League Game 1",
-      "type": null
+      "type": null,
+      "cost": 0
     },
     {
       "description": "Second Mens League Game",
       "event_date": "2022-08-16T23:00:00",
-      "img_url": "trophy_thumb.png",
+      "img_url": "/hoop-3.jpg",
       "location_id": 6,
       "name": "Mens League Game 2",
-      "type": null
+      "type": null,
+      "cost": 0
     },
     {
       "description": "Coed Rec League",
       "event_date": "2022-08-23T23:30:00",
-      "img_url": "trophy_thumb.png",
+      "img_url": "/hoop-2.jpg",
       "location_id": 7,
       "name": "Coed Rec League",
-      "type": null
+      "type": null,
+      "cost": 1500
     },
     {
       "description": "Pa's Walkathon",
       "event_date": "2022-08-30T23:30:00",
-      "img_url": "trophy_thumb.png",
+      "img_url": "/hoop-1.jpg",
       "location_id": 3,
       "name": "Pa's Walkathon",
       "type": null,
+      "cost": 1399,
       "organizer_id": 1
     }
   ]

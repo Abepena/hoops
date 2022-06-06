@@ -18,16 +18,14 @@ function SmallCard({
             />
           </figure>
           <div className="card-body">
-            <p>
-              <h2 className="card-title">{name}</h2>
-              <h3 className="truncate">{location.name}</h3>
-              <Moment fromNow className="text-xs text-gray-400" date={date} />
-              <div className="card-actions items-end justify-end">
-                <div className="badge badge-success">{`${
-                  cost ? costToString(cost) : "Free"
-                }`}</div>
-              </div>
-            </p>
+            <div className="card-title">{name}</div>
+            <h3 className="truncate">{location.name}</h3>
+            <Moment fromNow className="text-xs text-gray-400" date={date} />
+            <div className="card-actions items-end justify-end">
+              <div className="badge badge-success">{`${
+                cost ? costToString(cost) : "Free"
+              }`}</div>
+            </div>
           </div>
         </div>
       </a>

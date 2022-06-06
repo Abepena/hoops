@@ -23,6 +23,7 @@ from . import db
 # Stripe Config
 import stripe
 
+# Stripe Config
 stripe_keys = {
     "secret_key": environ["STRIPE_SECRET_KEY"],
     "publishable_key": environ["STRIPE_PUBLISHABLE_KEY"],
@@ -129,6 +130,7 @@ def create_event():
     organizer_id = request.json["organizer_id"]
     location_id = request.json["location_id"]
     type = request.json.get("type")
+    cost = request.json.get("cost")
     img = request.json.get("img")
     event_date = datetime.strptime(request.json["event_date"], "%Y-%m-%dT%H:%M:%S.%fZ")
     created_at = datetime.utcnow()
@@ -137,6 +139,7 @@ def create_event():
         name=name,
         type=type,
         img=img,
+        cost=cost,
         description=description,
         event_date=event_date,
         created_at=created_at,
@@ -176,7 +179,7 @@ def delete_event(id):
 @api.route("/events/upcoming", methods=["GET"])
 def upcoming():
     """
-    Returns a JSON List of the next 8 events coming up ordered by date
+    Returns a JSON List of the next limit(n) events coming up ordered by date
     """
     upcoming_events = [
         EventSchema().dump(event)
@@ -186,11 +189,6 @@ def upcoming():
     ]
 
     return (jsonify(events=upcoming_events), 200)
-
-    # for event in db.session.query(Event)
-    # .filter_by(Event.event_date >= datetime.utcnow())
-    # .order_by(Event.event_date.desc())
-    # .limit(8)
 
 
 #############
@@ -212,6 +210,23 @@ def all_users():
 
 @api.route("/config")
 def get_publishable_key():
+    stripe_config = {"publicKey": stripe_keys["publishable_key"]}
+    return jsonify(stripe_config)
+
+
+@api.route("/create-payment-intent")
+def create_payment_intent():
+    intent = stripe.PaymentIntent.create(
+        amount=request.json.get("amount"),
+        currency="usd",
+        payment_method_types=["card"],
+    )
+    print(jsonify(client_secret=intent.client_secret))
+    return jsonify(client_secret=intent.client_secret)
+
+
+@api.route("/checkout-secret")
+def checkout_secret():
     stripe_config = {"publicKey": stripe_keys["publishable_key"]}
     return jsonify(stripe_config)
 
