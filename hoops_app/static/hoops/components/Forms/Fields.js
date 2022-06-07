@@ -27,15 +27,22 @@ export const WaiverCheckbox = ({ label, children, ...props }) => {
   const [field, meta] = useField({ ...props, type: "checkbox" });
   return (
     <div className="">
-      <label class="cursor-pointer label">
+      <label className="cursor-pointer label">
         <div className="grid place-items-center w-full">
-          <span class="label-text text-lg my-2">{label}</span>
-          <input type="checkbox" className="checkbox checkbox-lg border-2 border-success checked:border-none" {...field} {...props} />
+          <span className="label-text text-lg my-2">{label}</span>
+          <input
+            type="checkbox"
+            className="checkbox checkbox-lg border-2 border-success checked:border-none"
+            {...field}
+            {...props}
+          />
         </div>
         {children}
       </label>
       {meta.touched && meta.error ? (
-         <div className="error text-error text-sm ml-1 mt-1">{meta.error}</div>
+        <div className="error text-error text-sm ml-1 mt-1 text-center">
+          {meta.error}
+        </div>
       ) : null}
     </div>
   );
@@ -48,7 +55,7 @@ export const Select = ({ label, ...props }) => {
       <label htmlFor={props.id || props.name}>{label}</label>
       <select {...field} {...props} />
       {meta.touched && meta.error ? (
-         <div className="error text-error text-sm ml-1 mt-1">{meta.error}</div>
+        <div className="error text-error text-sm ml-1 mt-1">{meta.error}</div>
       ) : null}
     </div>
   );

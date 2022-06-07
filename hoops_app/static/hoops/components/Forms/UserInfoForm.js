@@ -5,6 +5,7 @@ function UserInfoForm() {
   return (
     <>
       <section className="user-info">
+      <h2 className="text-2xl my-2">Details</h2>
         <div className="grid grid-flow-col grid-cols-2 gap-6 mb-2">
           <TextInput
             type="text"
@@ -37,22 +38,7 @@ function UserInfoForm() {
             className="input input-bordered"
           />
         </div>
-        <div className="flex justify-between mb-4 ">
-          <button
-            onClick={() => alert(`TODO: Add Guest to order`)}
-            className="btn btn-ghost"
-          >
-            Add guest +
-          </button>
-          <button
-            type="submit"
-            //   onClick={() => alert(`TODO: increase step`)}
-            className="btn btn-success flex items-center justify-self-end"
-          >
-            <span className="mr-2">Next</span>
-            <i className="fa-solid fa-arrow-right text-lg"></i>
-          </button>
-        </div>
+        
       </section>
     </>
   );
