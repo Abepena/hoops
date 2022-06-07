@@ -14,6 +14,7 @@ const Event = ({ event }) => {
         <EventContent event={event} />
       </div>
       <EventRegisterModal />
+      <script src="/js/paypal.js"></script>
     </PageWrapper>
   );
 };

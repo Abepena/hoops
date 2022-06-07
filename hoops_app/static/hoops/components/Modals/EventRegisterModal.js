@@ -3,6 +3,8 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "components/Forms/CheckoutForm";
 import axios from "axios";
+import PaypalButtons from "components/Buttons/PaypalButtons";
+import { MyTextInput } from "components/Forms/Fields";
 
 const stripePromise = loadStripe("pk_test_p4TrzUQEu2nYIDv5yMoTH8iQ");
 
@@ -21,16 +23,14 @@ function EventRegisterModal({ cost }) {
           {/* User Info + Guest Section */}
           <form className="mb-4 border-b border-neutral-content">
             <div className="grid grid-flow-col grid-cols-2 gap-6 ">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">First Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="John"
-                  className="input input-bordered"
-                />
-              </div>
+              <MyTextInput
+                type="text"
+                label="First Name"
+                name="firstName"
+                placeholder="John"
+                className="input input-bordered"
+              />
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Last Name</span>
@@ -110,6 +110,13 @@ function EventRegisterModal({ cost }) {
               voluptates, aut ullam iste recusandae corrupti in!
             </p>
           </section>
+          {/* Payment Info + Payment Buttons */}
+          <form className="my-2">
+            <h1 className="text-2xl">Payment</h1>
+            <button className="btn  btn-success">Stripe</button>
+          </form>
+
+          <PaypalButtons />
         </label>
       </label>
     </div>
@@ -117,25 +124,3 @@ function EventRegisterModal({ cost }) {
 }
 
 export default EventRegisterModal;
-
-// <div>
-// <input
-//   type="checkbox"
-//   id="event-signup-modal"
-//   className="modal-toggle"
-// />
-// <label className="modal modal-bottom sm:modal-middle">
-//   <label className="modal-box">
-//     {/* Confirmation / Payment  Section */}
-//     {/* <Elements stripe={stripePromise} options={options}>
-//     <CheckoutForm />
-//   </Elements> */}
-//     <div className="modal-action">
-//       <label htmlFor="event-signup-modal" className="btn">
-//         Yay!
-//       </label>
-//     </div>
-//   </label>
-// </label>
-// </div>
-// </div>
