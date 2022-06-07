@@ -6,4 +6,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   plugins: [require("tailwind-scrollbar-hide"), require("daisyui")],
+  theme: {
+    colors: {
+      success: "#37D399",
+    },
+  },
 };

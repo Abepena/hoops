@@ -30,22 +30,19 @@ function EventDetails({ event }) {
             ${event.location.state || ""}`
           }
         </h4>
-        <h4 className="flex items-center">
-          <TicketIcon className="h-6 mr-2" />
-          <div className="mr-2">
-            {event.cost ? (
-              costToString(event.cost)
-            ) : (
-              <div className="badge badge-lg badge-success ">Free</div>
-            )}
-          </div>
+
+        <div className="flex justify-between items-center">
+          <span className="flex">
+            <TicketIcon className="h-6 mr-2" />
+            {event.cost ? costToString(event.cost) : "Free"}
+          </span>
           <label
             htmlFor="event-signup-modal"
-            className="btn btn-sm modal-button btn-success"
+            className="btn btn-sm modal-button btn-success mr-8"
           >
             Register
           </label>
-        </h4>
+        </div>
       </div>
       <p className="m-4">
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Delectus, ad
